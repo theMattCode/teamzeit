@@ -1,0 +1,63 @@
+type Query {
+    club(id: ID!): Club
+}
+
+type Mutation {
+    createClub(name: String!): Club
+}
+
+type Club {
+    id: ID! 
+    name: String!
+    roles: [Role!]
+    teams: [Team!]
+    brand: Brand
+}
+
+type Brand {
+    colors: [String!]
+    logo: String
+}
+
+type Team {
+    id: ID!
+    name: String!
+}
+
+type Person {
+    id: ID! 
+    name: String!
+    roles: [Role!]
+    contact: Contact
+}
+
+type Role {
+    id: ID! 
+    name: String!
+}
+
+interface Contact {
+    name: String! @unique
+}
+
+type Mobile implements Contact {
+    name: String! @unique
+    number: String!
+}
+
+type Phone implements Contact {
+    name: String! @unique
+    number: String!
+}
+
+type Email implements Contact {
+    name: String! @unique
+    address: String!
+}
+
+type Address implements Contact {
+    name: String! @unique
+    street: String
+    number: String
+    city: String
+}
