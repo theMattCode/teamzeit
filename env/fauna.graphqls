@@ -1,0 +1,7 @@
+directive @collection(name: String!) on OBJECT
+directive @index(name: String!) on FIELD
+directive @embedded on OBJECT
+directive @relation(relation: String) on FIELD
+directive @unique(unique: String) on FIELD
+scalar Date
+scalar Long
